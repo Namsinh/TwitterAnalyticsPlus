@@ -25,7 +25,7 @@ api = tweepy.API(auth)
 
 user = api.get_user('data_cu')
 
-for friend in user.followers():
+for friend in user.friends():
     print ("Follower: " + friend.screen_name)
     # print (friend.screen_name)
     search = friend.screen_name
