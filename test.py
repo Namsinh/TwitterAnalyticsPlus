@@ -9,14 +9,14 @@ import tweepy
 
 # The consumer keys can be found on your application's Details
 # page located at https://dev.twitter.com/apps (under "OAuth settings")
-consumer_key = '######'
-consumer_secret = '######'
+consumer_key = 'HbZtZIbWlAlDmrDyKgcssTBZY'
+consumer_secret = 'VQr0r3LaETOmJWJ4VZxco7lwWIq2RuXy4uLXD0WRHdAWaXbwSH'
 
 # The access tokens can be found on your applications's Details
 # page located at https://dev.twitter.com/apps (located
 # under "Your access token")
-access_token = '######'
-access_token_secret = '#####'
+access_token = '983388258288599040-kxqW9IFDEclkqTMh5CNXduOGBEU5AU2'
+access_token_secret = 'HKIkCdrAaJ6cMxEmqIEvBgWdwDecEq7Uv97E6dpAbiRTl'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
@@ -26,9 +26,12 @@ api = tweepy.API(auth)
 user = api.get_user('data_cu')
 
 for friend in user.followers():
-    print ("First followers tweets!! \n\n")
-    print (friend.screen_name)
+    print ("Follower: " + friend.screen_name)
+    # print (friend.screen_name)
     search = friend.screen_name
-    tweets = api.user_timeline(screen_name=search, count=1, include_rts=True)
-    for status in tweets:
-        print (status.text)
+    try:
+        tweets = api.user_timeline(screen_name=search, count=1)
+        for status in tweets:
+            print (status.text)
+    except tweepy.TweepError:
+        print ("This user has protected tweets. Failed to run")
