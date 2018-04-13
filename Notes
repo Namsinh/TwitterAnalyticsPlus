@@ -1,0 +1,13 @@
+# for status in tweets:
+        # print (status.full_text)
+
+
+1. Here is what I'm thinking for this. If we do a sentiment analysis on each
+tweet or on each word, we can then determine if they are positive or negative about
+a particular topic, and then we can associate left, left center, right, or right center
+to certain news sources or something like that.
+
+2. Could use entity sentiment analysis too
+
+3. Could determine the users and the content that is worst on your social media platform. Also what is
+most positive. This could give users insight onto how much of their content they see is good/bad too

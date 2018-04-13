@@ -25,13 +25,24 @@ api = tweepy.API(auth)
 
 user = api.get_user('data_cu')
 
+print ()
+print ("****** Testing the twitter anaylytics platform ********")
+print ()
+
+# Initialize a list here
+
+# Define a function to parse all the information from the list
+
 for friend in user.friends():
-    print ("Follower: " + friend.screen_name)
+    # print ("Follower: " + friend.screen_name + "\n")
     # print (friend.screen_name)
     search = friend.screen_name
     try:
-        tweets = api.user_timeline(screen_name=search, count=1)
-        for status in tweets:
-            print (status.text)
+        tweets = api.user_timeline(
+            screen_name=search, count=10, tweet_mode="extended")
+        full_tweets = [[tweet.full_text] for tweet in tweets]
+        # concatenate the contents of each tweet to a new list or something
+        print (full_tweets)
+
     except tweepy.TweepError:
         print ("This user has protected tweets. Failed to run")
