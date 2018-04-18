@@ -1,6 +1,7 @@
 from __future__ import absolute_import, print_function
 
 import tweepy
+import simple_content
 
 # == OAuth Authentication ==
 #
@@ -33,16 +34,30 @@ print ()
 
 # Define a function to parse all the information from the list
 
+# A dictionary for each user's screen name and their tweets
+user_tweets = {}
+
 for friend in user.friends():
     # print ("Follower: " + friend.screen_name + "\n")
     # print (friend.screen_name)
     search = friend.screen_name
     try:
+        all_tweets = ""
         tweets = api.user_timeline(
-            screen_name=search, count=10, tweet_mode="extended")
-        full_tweets = [[tweet.full_text] for tweet in tweets]
-        # concatenate the contents of each tweet to a new list or something
-        print (full_tweets)
+            screen_name=search, count=1, tweet_mode="extended")
+        for tweet in tweets:
+            all_tweets += tweet.full_text
+        print (search)
+        try:
+            print ("Here is the classification")
+            simple_content.classify(all_tweets)
+        except:
+            print ("Error. The probably language is not supported")
+
+        # Create dictionary with everything
+        user_tweets[search] = all_tweets
 
     except tweepy.TweepError:
         print ("This user has protected tweets. Failed to run")
+
+# print (user_tweets)
