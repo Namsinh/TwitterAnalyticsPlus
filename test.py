@@ -24,7 +24,13 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-user = api.get_user('data_cu')
+#I/O Placeholder
+print("This tool will help you analyze a public account on twitter based on the accounts they follow.")
+name = input('Username on Twitter(public accounts only): ')
+
+print("First, let's get a list of the most recent tweets from the people you follow.")
+
+user = api.get_user(name)
 
 print ()
 print ("****** Testing the twitter anaylytics platform ********")
