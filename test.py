@@ -24,7 +24,7 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-#I/O Placeholder
+# I/O Placeholder
 print("This tool will help you analyze a public account on twitter based on the accounts they follow.")
 name = input('Username on Twitter(public accounts only): ')
 
