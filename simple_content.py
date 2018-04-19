@@ -1,5 +1,9 @@
 from google.cloud import language
 
+import os
+### Change this path to your local cred.json location ###
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/rabahhabiss/Downloads/TPlus/TwitterAnalyticsPlus/cred.json"
+
 
 def classify(text, verbose=True):
     """Classify the input text into categories. """
@@ -29,3 +33,5 @@ def classify(text, verbose=True):
 
     return result
 # [END def_classify]
+
+classify("Matt Forte, Devin Hester to sign one-day contracts, retire as Chicago Bears. Joel Embiid is listed as doubtful for Game 3 of the Heat-Sixers series on Thursday. Breaking: The Nevada State Athletic Commission has reached an agreement with Canelo Alvarez that will result in a 6-month suspension.")
