@@ -26,20 +26,22 @@ $ pip install tweepy
 ```
 $ pip install --upgrade google-cloud-language
 ```
+A personal access key for Google Services must be obtained.
+
 Further instructions on how to install Google Cloud Language library and set up an access key visit can be found at https://cloud.google.com/natural-language/docs/reference/libraries#client-libraries-install-php
 
 * <a href="http://www.nltk.org">Natural Language Toolkit</a>: To install the package run the following command in the terminal:
 ```
-sudo pip install -U nltk
+$ sudo pip install -U nltk
 ```
 
 ### Running and testing the application 
 
 The following scripts can be tested by running the files in Python:
-* Twitter API connectivety: `/test.py` asks the user to enter a public twitter account, connects to Twitter API and grabs the 10 most recent tweets from accounts in the following list. 
+* Twitter API connectivety: `./test.py` asks the user to enter a public twitter account, connects to Twitter API and grabs the 10 most recent tweets from accounts in the following list. 
 
-* Text Preprocessing: `/tweet_preprocessing.py` stores and retrieves tweet objects in JSON format, and pre-processes the tweets before passing them to Google Cloud. 
+* Text Preprocessing: `./tweet_preprocessing.py` stores and retrieves tweet objects in JSON format, and pre-processes the tweets before passing them to Google Cloud. 
 
-* Sentiment Analysis: `/sentiment.py`
+* Sentiment Analysis: `./sentiment.py`
 
-* Concent Classification: `/content.py`
+* Content Classification: `./content.py`
