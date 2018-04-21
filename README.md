@@ -28,6 +28,11 @@ $ pip install --upgrade google-cloud-language
 ```
 Further instructions on how to install Google Cloud Language library and set up an access key visit can be found at https://cloud.google.com/natural-language/docs/reference/libraries#client-libraries-install-php
 
+* <a href="http://www.nltk.org">Natural Language Toolkit</a>: To install the package run the following command in the terminal:
+```
+sudo pip install -U nltk
+```
+
 ### Running and testing the application 
 
 The following scripts can be tested by running the files in Python:
