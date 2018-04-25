@@ -52,13 +52,18 @@ def preprocess_tweets(json_file):
             print(tokens)
 
 
+    
 # I/O Placeholder
 username = input('Username on Twitter (public accounts only): ')
 
+# Getting the tweet json object 
 try:
     for tweet in tweepy.Cursor(api.user_timeline, id=username).items(10):
         store_json(tweet._json)
 
 except tweepy.TweepError:
     print ("This user has protected tweets. Failed to run")
+
+# Preprocessing the text in the tweet object
+preprocess_tweets('tweets.json')
 
