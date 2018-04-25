@@ -31,17 +31,19 @@ api = tweepy.API(auth)
 # print json
 def print_json(filename):
     with open('tweets.json', 'r') as f:
-        line = f.readline() #read only the first tweet
-        tweet = json.loads(line) #load it as python dict
-        print(json.dumps(tweet, indent=4)) # pretty-print
+        line = f.readline()  # read only the first tweet
+        tweet = json.loads(line)  # load it as python dict
+        print(json.dumps(tweet, indent=4))  # pretty-print
 
-#print_json("tweets.json")
+# print_json("tweets.json")
+
 
 # store json
 def store_json(tweet):
     with open('tweets.json', 'w') as fp:
         json.dump(tweet, fp)
         print(json.dumps(tweet))
+
 
 # text preprocessing
 def preprocess_tweets(json_file):
@@ -52,11 +54,10 @@ def preprocess_tweets(json_file):
             print(tokens)
 
 
-    
 # I/O Placeholder
 username = input('Username on Twitter (public accounts only): ')
 
-# Getting the tweet json object 
+# Getting the tweet json object
 try:
     for tweet in tweepy.Cursor(api.user_timeline, id=username).items(10):
         store_json(tweet._json)
@@ -66,4 +67,3 @@ except tweepy.TweepError:
 
 # Preprocessing the text in the tweet object
 preprocess_tweets('tweets.json')
-
