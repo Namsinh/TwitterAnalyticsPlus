@@ -45,7 +45,7 @@ print ()
 # A dictionary for each user's screen name and their tweets
 user_tweets = {}
 
-for friend in user.friends():
+for friend in user.friends(count=200):
     # print ("Follower: " + friend.screen_name + "\n")
     # print (friend.screen_name)
     search = friend.screen_name
@@ -61,7 +61,7 @@ for friend in user.friends():
             simple_content.classify(all_tweets)
             simple_content.simple_classify(all_tweets)
         except:
-            print ("Error. The probably language is not supported")
+            print ("Error. The user likely has protected tweets")
 
         # Create dictionary with everything
         user_tweets[search] = all_tweets

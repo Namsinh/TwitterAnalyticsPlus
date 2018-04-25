@@ -1,4 +1,5 @@
 from google.cloud import language
+from collections import defaultdict
 
 import os
 
@@ -51,7 +52,10 @@ def simple_classify(text, verbose=True):
 
 
 def print_categories():
-    print (all_categories)
+    tally = defaultdict(int)
+    for x in all_categories:
+        tally[x] += 1
+    print (tally)
 
 
 def classify(text, verbose=True):
