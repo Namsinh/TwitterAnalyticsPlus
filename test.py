@@ -8,6 +8,8 @@ import simple_content
 # This mode of authentication is the new preferred way
 # of authenticating with Twitter.
 
+print("Hello")
+
 # The consumer keys can be found on your application's Details
 # page located at https://dev.twitter.com/apps (under "OAuth settings")
 consumer_key = 'HbZtZIbWlAlDmrDyKgcssTBZY'
@@ -57,6 +59,7 @@ for friend in user.friends():
         try:
             print ("Here is the classification")
             simple_content.classify(all_tweets)
+            simple_content.simple_classify(all_tweets)
         except:
             print ("Error. The probably language is not supported")
 
@@ -66,4 +69,5 @@ for friend in user.friends():
     except tweepy.TweepError:
         print ("This user has protected tweets. Failed to run")
 
-# print (user_tweets)
+
+simple_content.print_categories()
