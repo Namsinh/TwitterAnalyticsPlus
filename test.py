@@ -45,7 +45,7 @@ print ()
 # A dictionary for each user's screen name and their tweets
 user_tweets = {}
 
-for friend in user.friends(count=200):
+for friend in user.friends(count=10):
     # print ("Follower: " + friend.screen_name + "\n")
     # print (friend.screen_name)
     search = friend.screen_name

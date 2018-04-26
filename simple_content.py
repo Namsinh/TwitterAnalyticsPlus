@@ -55,7 +55,13 @@ def print_categories():
     tally = defaultdict(int)
     for x in all_categories:
         tally[x] += 1
-    print (tally)
+    print (tally.items())
+    for k, v in tally:
+        if (k != ''):
+            # sort according to the values and then print the first few
+            while (x < 5):
+                # print the five greatest
+
 
 
 def classify(text, verbose=True):
