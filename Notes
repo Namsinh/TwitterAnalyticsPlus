@@ -13,3 +13,5 @@ that tweet in similar categories.
 Is it going to be better to go through and grab each tweet, and if it's long enough categorize it or to take a general
 sentiment analysis across multiple tweets? I think it's going to be best to go across and get categories for each tweet,
 and then make a new dictionary with each value containing a list of the categories that came up. 
+
+This is going to be easiest if I get who said what, attached with the category, attached with the tweet for each thing

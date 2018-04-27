@@ -8,8 +8,6 @@ import simple_content
 # This mode of authentication is the new preferred way
 # of authenticating with Twitter.
 
-print("Hello")
-
 # The consumer keys can be found on your application's Details
 # page located at https://dev.twitter.com/apps (under "OAuth settings")
 consumer_key = 'HbZtZIbWlAlDmrDyKgcssTBZY'
@@ -45,9 +43,13 @@ print ()
 # A dictionary for each user's screen name and their tweets
 user_tweets = {}
 
-for friend in user.friends(count=10):
+count = 1
+
+for friend in user.friends(count=50):
     # print ("Follower: " + friend.screen_name + "\n")
     # print (friend.screen_name)
+    print ("Reading friend # " + str(count) + "'s tweets right now")
+    count += 1
     search = friend.screen_name
     try:
         all_tweets = ""
@@ -55,13 +57,11 @@ for friend in user.friends(count=10):
             screen_name=search, count=1, tweet_mode="extended")
         for tweet in tweets:
             all_tweets += tweet.full_text
-        print (search)
         try:
-            print ("Here is the classification")
-            simple_content.classify(all_tweets)
+            # simple_content.classify(all_tweets)
             simple_content.simple_classify(all_tweets)
         except:
-            print ("Error. The user likely has protected tweets")
+            print ("")
 
         # Create dictionary with everything
         user_tweets[search] = all_tweets
