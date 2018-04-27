@@ -5,7 +5,7 @@ import os
 import sentiment
 
 # Change this path to your local cred.json location ###
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/benjaminwasserman/Desktop/cpsc353/twitter_final/TwitterAnalyticsPlus/credentials.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "credentials.json"
 
 all_categories = []
 categorized_text = {}

@@ -14,7 +14,7 @@ These instructions will get you a copy of the project up and running on your loc
 The following dependencies must be installed in your machine in order to compile the application:
 
 * Python 2.4.0+
-* <a href="https://github.com/tweepy/tweepy/" target="_blank">Tweepy</a>: A Python library for accessing Twitter API 
+* <a href="https://github.com/tweepy/tweepy/" target="_blank">Tweepy</a>: A Python library for accessing Twitter API
 > To install Tweepy package using pip run the following command in your terminal:
 
 ```
@@ -22,7 +22,7 @@ $ pip install tweepy
 ```
 
 * Google Cloud Natural Language
-> To install Google Cloud Language run the following command in your terminal: 
+> To install Google Cloud Language run the following command in your terminal:
 ```
 $ pip install --upgrade google-cloud-language
 ```
@@ -35,12 +35,12 @@ Further instructions on how to install Google Cloud Language library and set up 
 $ sudo pip install -U nltk
 ```
 
-### Running and testing the application 
+### Running and testing the application
 
 The following scripts can be tested by running the files in Python:
-* Twitter API connectivety: `./test.py` asks the user to enter a public twitter account, connects to Twitter API and grabs the 10 most recent tweets from accounts in the following list. 
+* Twitter API connectivety: `./test.py` asks the user to enter a public twitter account, connects to Twitter API and grabs the 10 most recent tweets from accounts in the following list.
 
-* Text Preprocessing: `./tweet_preprocessing.py` stores and retrieves tweet objects in JSON format, and pre-processes the tweets before passing them to Google Cloud. 
+* Text Preprocessing: `./tweet_preprocessing.py` stores and retrieves tweet objects in JSON format, and pre-processes the tweets before passing them to Google Cloud.
 
 * Sentiment Analysis: `./sentiment.py`
 

@@ -5,7 +5,7 @@ from google.cloud.language import types
 
 import os
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/benjaminwasserman/Desktop/cpsc353/twitter_final/TwitterAnalyticsPlus/credentials.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "credentials.json"
 
 
 def classify_sentiment(text):
