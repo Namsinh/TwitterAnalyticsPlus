@@ -42,7 +42,10 @@ def simple_classify(text, verbose=True):
     document = language.types.Document(
         content=text,
         type=language.enums.Document.Type.PLAIN_TEXT)
-    response = language_client.classify_text(document)
+    try:
+        response = language_client.classify_text(document)
+    except():
+        print("Not long enough text to analyze")
     categories = response.categories
 
     result = {}
@@ -53,13 +56,13 @@ def simple_classify(text, verbose=True):
         # be treated as a sparse vector.
         result[category.name] = category.confidence
 
+
     if verbose:
         # print(text)
         for category in categories:
             long_category = category.name
             append_categories(category_split(long_category))
             text_categories(long_category, text)
-            # print (category.name)
 
     return
 # [END def_classify]
@@ -70,7 +73,7 @@ def sort_key(d):
         return d[x]
 
 
-# going to need to use something else here
+# Going to need to use something else here for the personal tweets - both all_categories and list_with_count are empty in this
 def print_categories():
 
     count_dictionary = {}
@@ -83,42 +86,68 @@ def print_categories():
                 count += 1
         count_dictionary[y] = count
 
-    del count_dictionary['']
+    try:
+        del count_dictionary['']
+    except(KeyError):
+        print("Not enough tweets to analyze precisely")
 
     list_with_count = [{k: v} for (k, v) in count_dictionary.iteritems()]
 
     list_with_count = (sorted(list_with_count, key=sort_key, reverse=True))
 
+    count_categories = len(list_with_count)
+    print ("Number of distinct categories: ")
+    print (count_categories)
+
+
+    # Next thing to do is get an average overall sentiment
+
+
     i = -1
 
     print
-    print ("See the categories that your users tweet about most often and the sentiment below!")
+    print ("The score depicts the sentiment and the magnitude depicts the amount of emotion")
     print
 
     while (i < 5):
         i += 1
         if (i == 0):
-            high_category1 = str(''.join(list_with_count[i].keys()))
-            print ("1st: " + high_category1)
-            sentiment.classify_sentiment(categorized_text[high_category1].encode('utf-8'))
+            try:
+                high_category1 = str(''.join(list_with_count[i].keys()))
+                print ("1st: " + high_category1)
+                sentiment.classify_sentiment(categorized_text[high_category1].encode('utf-8'))
+            except(IndexError):
+                print ("The tweets weren't long enough to determine categories")
             print
         elif (i == 1):
-            high_category2 = str(''.join(list_with_count[i].keys()))
-            print ("2nd: " + high_category2)
-            sentiment.classify_sentiment(categorized_text[high_category2].encode('utf-8'))
+            try:
+                high_category2 = str(''.join(list_with_count[i].keys()))
+                print ("2nd: " + high_category2)
+                sentiment.classify_sentiment(categorized_text[high_category2].encode('utf-8'))
+            except(IndexError):
+                break
             print
         elif (i == 2):
-            high_category3 = str(''.join(list_with_count[i].keys()))
-            print ("3rd: " + high_category3)
-            sentiment.classify_sentiment(categorized_text[high_category3].encode('utf-8'))
+            try:
+                high_category3 = str(''.join(list_with_count[i].keys()))
+                print ("3rd: " + high_category3)
+                sentiment.classify_sentiment(categorized_text[high_category3].encode('utf-8'))
+            except:
+                break
             print
         elif (i == 3):
-            high_category4 = str(''.join(list_with_count[i].keys()))
-            print ("4th: " + high_category4)
-            sentiment.classify_sentiment(categorized_text[high_category4].encode('utf-8'))
+            try:
+                high_category4 = str(''.join(list_with_count[i].keys()))
+                print ("4th: " + high_category4)
+                sentiment.classify_sentiment(categorized_text[high_category4].encode('utf-8'))
+            except:
+                break
             print
         elif (i == 4):
-            high_category5 = str(''.join(list_with_count[i].keys()))
-            print ("5th: " + high_category5)
-            sentiment.classify_sentiment(categorized_text[high_category5].encode('utf-8'))
+            try:
+                high_category5 = str(''.join(list_with_count[i].keys()))
+                print ("5th: " + high_category5)
+                sentiment.classify_sentiment(categorized_text[high_category5].encode('utf-8'))
+            except:
+                break
             print

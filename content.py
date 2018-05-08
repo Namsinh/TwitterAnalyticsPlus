@@ -1,11 +1,9 @@
 # [START classify_text_tutorial_import]
-import argparse
 import io
 import json
 import os
 
 from google.cloud import language
-import numpy
 import six
 # [END classify_text_tutorial_import]
 

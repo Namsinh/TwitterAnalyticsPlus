@@ -15,3 +15,5 @@ sentiment analysis across multiple tweets? I think it's going to be best to go a
 and then make a new dictionary with each value containing a list of the categories that came up. 
 
 This is going to be easiest if I get who said what, attached with the category, attached with the tweet for each thing
+
+There is an issue right now with getting everything in a list, don’t even need that for this one
