@@ -77,6 +77,7 @@ def sort_key(d):
 def print_categories():
 
     count_dictionary = {}
+    total = 0
 
     for x in all_categories:
         y = x
@@ -96,12 +97,19 @@ def print_categories():
     list_with_count = (sorted(list_with_count, key=sort_key, reverse=True))
 
     count_categories = len(list_with_count)
+    print
     print ("Number of distinct categories: ")
     print (count_categories)
 
+    y = 0
+    while (y < count_categories):
+        temp_category = str(''.join(list_with_count[y].keys()))
+        total += sentiment.classify_average(categorized_text[temp_category].encode('utf-8'))
+        y += 1
 
-    # Next thing to do is get an average overall sentiment
-
+    print
+    print ("Average sentiment")
+    print (total/count_categories)
 
     i = -1
 

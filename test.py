@@ -38,6 +38,7 @@ print ("****** Testing the twitter anaylytics platform ********")
 print ()
 
 print ("First, let's see the categories you tweet about most")
+print ()
 
 my_tweets = ""
 personal_tweets = api.user_timeline(screen_name=my_screen_name, count=20, tweet_mode="extended")
