@@ -1,5 +1,4 @@
 from google.cloud import language
-from collections import defaultdict
 
 import os
 import sentiment
@@ -72,7 +71,8 @@ def sort_key(d):
         return d[x]
 
 
-# Going to need to use something else here for the personal tweets - both all_categories and list_with_count are empty in this
+# Going to need to use something else here for the personal tweets.
+# both all_categories and list_with_count are empty in this
 def print_categories():
 
     count_dictionary = {}
@@ -102,13 +102,15 @@ def print_categories():
     print (count_categories)
 
     print
-    print ("The score depicts the sentiment and the magnitude depicts the amount of emotion")
+    print ("The score depicts the sentiment and the magnitude " +
+           " depicts the amount of emotion")
     print
 
     y = 0
     while (y < count_categories):
         temp_category = str(''.join(list_with_count[y].keys()))
-        temp = sentiment.classify_average(categorized_text[temp_category].encode('utf-8')).split(',')
+        temp = sentiment.classify_average(
+            categorized_text[temp_category].encode('utf-8')).split(',')
         total_sentiment += float(temp[0])
         total_magnitude += float(temp[1])
         y += 1
@@ -119,7 +121,8 @@ def print_categories():
     print (average_sentiment)
 
     if (average_sentiment > 0 and average_sentiment < .3):
-        print ("This sentiment can be interpreted as more or less neutral on average")
+        print ("This sentiment " +
+               " can be interpreted as more or less neutral on average")
     elif (average_sentiment < 0):
         print ("This sentiment can be interpreted as negative")
     elif (average_sentiment > .3 and average_sentiment < .6):
@@ -133,11 +136,14 @@ def print_categories():
     print (average_magnitude)
 
     if (average_magnitude > 0 and average_magnitude < 3):
-        print ("This magnitude can be interpreted as content that contains very little emotion on average")
+        print ("This magnitude can be interpreted as content that contains " +
+               " very little emotion on average")
     elif (average_magnitude < 0):
-        print ("This magnitude can be interpreted as content that contains no emotion")
+        print ("This magnitude can be interpreted as content that contains " +
+               " no emotion")
     elif (average_magnitude > 3 and average_magnitude < 6):
-        print ("This magnitude can interpreted as content that is relatively emotional")
+        print ("This magnitude can interpreted as content " +
+               " that is relatively emotional")
     elif (average_magnitude > 6):
         print ("This magnitude can be interpreted as very emotional content")
 
@@ -151,15 +157,18 @@ def print_categories():
             try:
                 high_category1 = str(''.join(list_with_count[i].keys()))
                 print ("1st: " + high_category1)
-                sentiment.classify_sentiment(categorized_text[high_category1].encode('utf-8'))
+                sentiment.classify_sentiment(
+                    categorized_text[high_category1].encode('utf-8'))
             except(IndexError):
-                print ("The tweets weren't long enough to determine categories")
+                print (
+                    "The tweets weren't long enough to determine categories")
             print
         elif (i == 1):
             try:
                 high_category2 = str(''.join(list_with_count[i].keys()))
                 print ("2nd: " + high_category2)
-                sentiment.classify_sentiment(categorized_text[high_category2].encode('utf-8'))
+                sentiment.classify_sentiment(
+                    categorized_text[high_category2].encode('utf-8'))
             except(IndexError):
                 break
             print
@@ -167,7 +176,8 @@ def print_categories():
             try:
                 high_category3 = str(''.join(list_with_count[i].keys()))
                 print ("3rd: " + high_category3)
-                sentiment.classify_sentiment(categorized_text[high_category3].encode('utf-8'))
+                sentiment.classify_sentiment(
+                    categorized_text[high_category3].encode('utf-8'))
             except(IndexError):
                 break
             print
@@ -175,7 +185,8 @@ def print_categories():
             try:
                 high_category4 = str(''.join(list_with_count[i].keys()))
                 print ("4th: " + high_category4)
-                sentiment.classify_sentiment(categorized_text[high_category4].encode('utf-8'))
+                sentiment.classify_sentiment(
+                    categorized_text[high_category4].encode('utf-8'))
             except(IndexError):
                 break
             print
@@ -183,7 +194,8 @@ def print_categories():
             try:
                 high_category5 = str(''.join(list_with_count[i].keys()))
                 print ("5th: " + high_category5)
-                sentiment.classify_sentiment(categorized_text[high_category5].encode('utf-8'))
+                sentiment.classify_sentiment(
+                    categorized_text[high_category5].encode('utf-8'))
             except(IndexError):
                 break
             print
@@ -197,7 +209,8 @@ def print_categories():
             try:
                 high_category = str(''.join(list_with_count[n].keys()))
                 print (str(n+5) + ": " + str(high_category))
-                sentiment.classify_sentiment(categorized_text[high_category].encode('utf-8'))
+                sentiment.classify_sentiment(
+                    categorized_text[high_category].encode('utf-8'))
             except(IndexError):
                 print ("That was all the categories")
                 print

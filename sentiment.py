@@ -22,7 +22,6 @@ def classify_average(text):
 
     # print('Text: {}'.format(text))
     return (str(sentiment.score) + "," + str(sentiment.magnitude))
-    # print('Sentiment: score: {}, magnitude: {}'.format(sentiment.score, sentiment.magnitude))
 
 
 def classify_sentiment(text):
@@ -38,7 +37,8 @@ def classify_sentiment(text):
     sentiment = client.analyze_sentiment(document=document).document_sentiment
 
     # print('Text: {}'.format(text))
-    print('Sentiment: score: {}, magnitude: {}'.format(sentiment.score, sentiment.magnitude))
+    print('Sentiment: score: {}, magnitude: {}'.format(
+        sentiment.score, sentiment.magnitude))
 
 
 # classify_sentiment("I hate this so much!")

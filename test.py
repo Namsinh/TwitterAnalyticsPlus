@@ -25,7 +25,9 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 # I/O Placeholder
-print("This tool will help you analyze a public account on twitter based on the accounts they follow.")
+print (
+    "This tool will help you analyze a public account on twitter based " +
+    " on the accounts they follow.")
 name = raw_input('Username on Twitter(public accounts only): ')
 
 user = api.get_user(name)
@@ -41,7 +43,9 @@ print ("First, let's see the categories you tweet about most")
 print ()
 
 my_tweets = ""
-personal_tweets = api.user_timeline(screen_name=my_screen_name, count=30, tweet_mode="extended")
+personal_tweets = api.user_timeline(screen_name=my_screen_name,
+                                    count=30, tweet_mode="extended")
+
 for x in personal_tweets:
     # print (x.full_text)
     my_tweets += x.full_text
@@ -69,7 +73,8 @@ for friend in user.friends(count=50):
     if (count == 0):
         print ("Reading first 5 users right now")
     elif (count % 5 == 0):
-        print ("Reading users " + str(count) + " - " + str(count+5) + " right now")
+        print ("Reading users " + str(count) + " - " + str(count+5) +
+               " right now")
     count += 1
     search = friend.screen_name
     print (search)
