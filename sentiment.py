@@ -7,6 +7,7 @@ import os
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "credentials.json"
 
+
 def classify_average(text):
     # Instantiates a client
     client = language.LanguageServiceClient()
@@ -20,7 +21,7 @@ def classify_average(text):
     sentiment = client.analyze_sentiment(document=document).document_sentiment
 
     # print('Text: {}'.format(text))
-    return sentiment.score
+    return (str(sentiment.score) + "," + str(sentiment.magnitude))
     # print('Sentiment: score: {}, magnitude: {}'.format(sentiment.score, sentiment.magnitude))
 
 

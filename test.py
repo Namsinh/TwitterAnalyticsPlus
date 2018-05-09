@@ -41,7 +41,7 @@ print ("First, let's see the categories you tweet about most")
 print ()
 
 my_tweets = ""
-personal_tweets = api.user_timeline(screen_name=my_screen_name, count=20, tweet_mode="extended")
+personal_tweets = api.user_timeline(screen_name=my_screen_name, count=30, tweet_mode="extended")
 for x in personal_tweets:
     # print (x.full_text)
     my_tweets += x.full_text
@@ -76,7 +76,7 @@ for friend in user.friends(count=50):
     try:
         all_tweets = ""
         tweets = api.user_timeline(
-            screen_name=search, count=1, tweet_mode="extended")
+            screen_name=search, count=10, tweet_mode="extended")
         for tweet in tweets:
             all_tweets += tweet.full_text
         try:

@@ -56,7 +56,6 @@ def simple_classify(text, verbose=True):
         # be treated as a sparse vector.
         result[category.name] = category.confidence
 
-
     if verbose:
         # print(text)
         for category in categories:
@@ -77,7 +76,8 @@ def sort_key(d):
 def print_categories():
 
     count_dictionary = {}
-    total = 0
+    total_sentiment = 0
+    total_magnitude = 0
 
     for x in all_categories:
         y = x
@@ -101,21 +101,49 @@ def print_categories():
     print ("Number of distinct categories: ")
     print (count_categories)
 
+    print
+    print ("The score depicts the sentiment and the magnitude depicts the amount of emotion")
+    print
+
     y = 0
     while (y < count_categories):
         temp_category = str(''.join(list_with_count[y].keys()))
-        total += sentiment.classify_average(categorized_text[temp_category].encode('utf-8'))
+        temp = sentiment.classify_average(categorized_text[temp_category].encode('utf-8')).split(',')
+        total_sentiment += float(temp[0])
+        total_magnitude += float(temp[1])
         y += 1
 
     print
     print ("Average sentiment")
-    print (total/count_categories)
+    average_sentiment = total_sentiment/count_categories
+    print (average_sentiment)
+
+    if (average_sentiment > 0 and average_sentiment < .3):
+        print ("This sentiment can be interpreted as more or less neutral on average")
+    elif (average_sentiment < 0):
+        print ("This sentiment can be interpreted as negative")
+    elif (average_sentiment > .3 and average_sentiment < .6):
+        print ("This sentiment can be interpreted as relatively positive")
+    elif (average_sentiment > .6):
+        print ("This sentiment can be interpreted as very positive")
+
+    print
+    print ("Average magnitude")
+    average_magnitude = total_magnitude/count_categories
+    print (average_magnitude)
+
+    if (average_magnitude > 0 and average_magnitude < 3):
+        print ("This magnitude can be interpreted as content that contains very little emotion on average")
+    elif (average_magnitude < 0):
+        print ("This magnitude can be interpreted as content that contains no emotion")
+    elif (average_magnitude > 3 and average_magnitude < 6):
+        print ("This magnitude can interpreted as content that is relatively emotional")
+    elif (average_magnitude > 6):
+        print ("This magnitude can be interpreted as very emotional content")
+
+    print
 
     i = -1
-
-    print
-    print ("The score depicts the sentiment and the magnitude depicts the amount of emotion")
-    print
 
     while (i < 5):
         i += 1
@@ -140,7 +168,7 @@ def print_categories():
                 high_category3 = str(''.join(list_with_count[i].keys()))
                 print ("3rd: " + high_category3)
                 sentiment.classify_sentiment(categorized_text[high_category3].encode('utf-8'))
-            except:
+            except(IndexError):
                 break
             print
         elif (i == 3):
@@ -148,7 +176,7 @@ def print_categories():
                 high_category4 = str(''.join(list_with_count[i].keys()))
                 print ("4th: " + high_category4)
                 sentiment.classify_sentiment(categorized_text[high_category4].encode('utf-8'))
-            except:
+            except(IndexError):
                 break
             print
         elif (i == 4):
@@ -156,6 +184,22 @@ def print_categories():
                 high_category5 = str(''.join(list_with_count[i].keys()))
                 print ("5th: " + high_category5)
                 sentiment.classify_sentiment(categorized_text[high_category5].encode('utf-8'))
-            except:
+            except(IndexError):
+                break
+            print
+
+    load_more = raw_input("Enter y to see the next 5 categories and n to quit")
+
+    if (load_more == 'y'):
+        n = i
+        while (n < i + 5):
+            n += 1
+            try:
+                high_category = str(''.join(list_with_count[n].keys()))
+                print (str(n+5) + ": " + str(high_category))
+                sentiment.classify_sentiment(categorized_text[high_category].encode('utf-8'))
+            except(IndexError):
+                print ("That was all the categories")
+                print
                 break
             print
