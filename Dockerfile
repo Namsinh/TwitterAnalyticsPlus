@@ -7,6 +7,10 @@ COPY test.py ./
 COPY sentiment.py ./
 COPY simple_content.py ./
 COPY content.py ./
+COPY Main.py ./
+COPY MainWindow.py ./
+COPY analyzer.py ./
+COPY tokenizer.py ./
 
 RUN yum -y install epel-release
 RUN yum -y install python-devel
@@ -17,3 +21,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 CMD [ "python", "./test.py" ]
+CMD [ "python", “./Main.py" ]
