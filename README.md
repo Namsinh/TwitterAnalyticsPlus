@@ -46,7 +46,9 @@ $ sudo pip install -U nltk
 
 ### Running and testing the application
 
-The following scripts can be tested by running the files in Python:
+GUI Version: Run `./Main.py` in python. 
+
+The following scripts can also be tested by running the files in Python:
 * Twitter API connectivety: `./test.py` asks the user to enter a public twitter account, connects to Twitter API and grabs the 10 most recent tweets from accounts in the following list.
 
 * Text Preprocessing: `./tweet_preprocessing.py` stores and retrieves tweet objects in JSON format, and pre-processes the tweets before passing them to Google Cloud.
