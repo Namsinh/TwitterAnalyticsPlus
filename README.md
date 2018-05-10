@@ -8,7 +8,7 @@ The application is still in the development stage.
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Run with Docker
+### Run script with Docker
 
 ```
 $ docker image build -t test .
@@ -18,11 +18,22 @@ $ docker image build -t test .
 $ docker container run --rm -it test
 ```
 
+### Run GUI with Docker
+
+```
+$ docker image build - t Main .
+```
+
+```
+$ docker container run --rm -it Main
+```
+
 ### Setting up the environment
 
 The following dependencies must be installed in your machine in order to compile the application:
 
 * Python 2.4.0+
+* NOTE: If you are running Python 2, all input must have quotations around it (as if you were coding a string). We strongly recommend to use Python 3, as it will be significantly more seamless.
 * <a href="https://github.com/tweepy/tweepy/" target="_blank">Tweepy</a>: A Python library for accessing Twitter API
 > To install Tweepy package using pip run the following command in your terminal:
 
@@ -46,7 +57,7 @@ $ sudo pip install -U nltk
 
 ### Running and testing the application
 
-GUI Version: Run `./Main.py` in python. 
+GUI Version: Run `./Main.py` in python.
 
 The following scripts can also be tested by running the files in Python:
 * Twitter API connectivety: `./test.py` asks the user to enter a public twitter account, connects to Twitter API and grabs the 10 most recent tweets from accounts in the following list.

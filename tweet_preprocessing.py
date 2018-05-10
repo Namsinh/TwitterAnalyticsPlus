@@ -5,11 +5,11 @@ import tokenizer
 
 #
 # Description: This script does the following:
-#               * Connects to Twitter's API
-#               * Retrieves the most recent tweets of a username provided by the user
-#               * Stores the tweets in a json file
-#               * Prints the contents of a json file
-#               * Pre-processes the text content in a json file
+#        * Connects to Twitter's API
+#        * Retrieves the most recent tweets of a username provided by the user
+#        * Stores the tweets in a json file
+#        * Prints the contents of a json file
+#        * Pre-processes the text content in a json file
 # Dependencies: Tweepy, NLTK
 #
 

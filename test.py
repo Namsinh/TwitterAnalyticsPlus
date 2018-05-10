@@ -26,13 +26,13 @@ api = tweepy.API(auth)
 
 while(True):
     start = input("Press 1 to look at the tweets of a specific user, " +
-                      " and 2 to look at all the tweets of a user's followers\n")
+                  " and 2 to look at all the tweets of a user's followers\n")
     if (start == '1'):
 
         # I/O Placeholder
         print (
-            "This tool will help you analyze a public account on twitter based " +
-            " on the accounts they follow.")
+            "This tool will help you analyze a public account on twitter " +
+            " based on the accounts they follow.")
         name = input('Username on Twitter(public accounts only): ')
 
         user = api.get_user(name)
@@ -76,7 +76,7 @@ while(True):
 
         count = 0
 
-        print("First, we will analyze the tweets of the following people you follow")
+        print("First, we will analyze tweets of these people you follow")
 
         for friend in user.friends(count=50):
             # print ("Follower: " + friend.screen_name + "\n")
@@ -111,8 +111,8 @@ while(True):
     else:
         print("Try again.")
 
-    continuation = raw_input("If you would like to continue, press y. " +
-                             " Press any other botton to quit")
+    continuation = input("If you would like to continue, press y. " +
+                         " Press any other botton to quit")
 
     if (continuation != 'y'):
         print ("Thanks for using our analytics platform")
