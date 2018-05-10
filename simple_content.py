@@ -92,7 +92,7 @@ def print_categories():
     except(KeyError):
         print("Not enough tweets to analyze precisely")
 
-    list_with_count = [{k: v} for (k, v) in count_dictionary.iteritems()]
+    list_with_count = [{k: v} for (k, v) in count_dictionary.items()]
 
     list_with_count = (sorted(list_with_count, key=sort_key, reverse=True))
 
@@ -200,7 +200,7 @@ def print_categories():
                 break
             print
 
-    load_more = raw_input("Enter y to see the next 5 categories and n to quit")
+    load_more = input("Enter y to see the next 5 categories and n to quit")
 
     if (load_more == 'y'):
         n = i
@@ -216,3 +216,130 @@ def print_categories():
                 print
                 break
             print
+ 
+def print_categories_str():
+
+    count_dictionary = {}
+    total_sentiment = 0
+    total_magnitude = 0
+    reportStr = "\n"
+
+    for x in all_categories:
+        y = x
+        count = 0
+        for z in all_categories:
+            if (z == y):
+                count += 1
+        count_dictionary[y] = count
+
+    try:
+        del count_dictionary['']
+    except(KeyError):
+        print("Not enough tweets to analyze precisely")
+
+    list_with_count = [{k: v} for (k, v) in count_dictionary.items()]
+
+    list_with_count = (sorted(list_with_count, key=sort_key, reverse=True))
+
+    count_categories = len(list_with_count)
+    print
+    reportStr += "Number of distinct categories: "
+    reportStr += str(count_categories)
+
+    
+    reportStr += ("\nThe score depicts the sentiment and the magnitude " +
+           " depicts the amount of emotion\n")
+
+    y = 0
+    while (y < count_categories):
+        temp_category = str(''.join(list_with_count[y].keys()))
+        temp = sentiment.classify_average(
+            categorized_text[temp_category].encode('utf-8')).split(',')
+        total_sentiment += float(temp[0])
+        total_magnitude += float(temp[1])
+        y += 1
+
+    reportStr += ("Average sentiment: ")
+    average_sentiment = total_sentiment/count_categories
+    reportStr += str(average_sentiment)
+
+    if (average_sentiment > 0 and average_sentiment < .3):
+        reportStr += ("\nThis sentiment " +
+               " can be interpreted as more or less neutral on average")
+    elif (average_sentiment < 0):
+        reportStr += ("\nThis sentiment can be interpreted as negative")
+    elif (average_sentiment > .3 and average_sentiment < .6):
+        reportStr +=  ("\nThis sentiment can be interpreted as relatively positive")
+    elif (average_sentiment > .6):
+        reportStr +=  ("\nThis sentiment can be interpreted as very positive")
+
+    reportStr +=  ("\nAverage magnitude: ")
+    average_magnitude = total_magnitude/count_categories
+    reportStr += str(average_magnitude)
+
+    if (average_magnitude > 0 and average_magnitude < 3):
+        reportStr +=  ("\nThis magnitude can be interpreted as content that contains " +
+               " very little emotion on average")
+    elif (average_magnitude < 0):
+        reportStr +=  ("\nThis magnitude can be interpreted as content that contains " +
+               " no emotion")
+    elif (average_magnitude > 3 and average_magnitude < 6):
+        reportStr += ("\nThis magnitude can interpreted as content " +
+               " that is relatively emotional")
+    elif (average_magnitude > 6):
+        reportStr += ("\nThis magnitude can be interpreted as very emotional content")
+
+    i = -1
+
+    reportStr += "\n\nTop 5 Content Categories: "
+
+    while (i < 5):
+        i += 1
+        if (i == 0):
+            try:
+                high_category1 = str(''.join(list_with_count[i].keys()))
+                reportStr += ("\n1st: " + high_category1)
+                sentiment.classify_sentiment(
+                    categorized_text[high_category1].encode('utf-8'))
+            except(IndexError):
+                reportStr +=  (
+                    "\nThe tweets weren't long enough to determine categories")
+            print
+        elif (i == 1):
+            try:
+                high_category2 = str(''.join(list_with_count[i].keys()))
+                reportStr += ("\n2nd: " + high_category2)
+                sentiment.classify_sentiment(
+                    categorized_text[high_category2].encode('utf-8'))
+            except(IndexError):
+                break
+            print
+        elif (i == 2):
+            try:
+                high_category3 = str(''.join(list_with_count[i].keys()))
+                reportStr += ("\n3rd: " + high_category3)
+                sentiment.classify_sentiment(
+                    categorized_text[high_category3].encode('utf-8'))
+            except(IndexError):
+                break
+            print
+        elif (i == 3):
+            try:
+                high_category4 = str(''.join(list_with_count[i].keys()))
+                reportStr += ("\n4th: " + high_category4)
+                sentiment.classify_sentiment(
+                    categorized_text[high_category4].encode('utf-8'))
+            except(IndexError):
+                break
+            print
+        elif (i == 4):
+            try:
+                high_category5 = str(''.join(list_with_count[i].keys()))
+                reportStr += ("\n5th: " + high_category5 + "\n\n")
+                sentiment.classify_sentiment(
+                    categorized_text[high_category5].encode('utf-8'))
+            except(IndexError):
+                break
+            print("Done")
+
+    return reportStr
