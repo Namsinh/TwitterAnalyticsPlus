@@ -1,3 +1,4 @@
 tweepy
 google-cloud-language
 nltk
+tkinter
