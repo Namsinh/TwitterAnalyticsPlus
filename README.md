@@ -7,9 +7,9 @@ The application is still in the development stage. Note that there isn't much us
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Run with Docker
+NOTE: To run the GUI, you must install it and the dependencies. Tkinter can't be installed with docker.
 
-NOTE: If you don't have Tkinter installed already, you must install it. It can't be installed with docker.
+### Run with Docker
 
 ```
 $ docker image build -t test .
@@ -20,17 +20,12 @@ Run script
 $ docker container run --rm -it test
 ```
 
-Run GUI
-```
-$ docker container run --rm -it main
-```
-
 ### Setting up the environment
 
 The following dependencies must be installed in your machine in order to compile the application:
 
 * Python 2.4.0+
-* NOTE: If you're not using the docker container to build and run the code, Python 2 must be used. Python 3 will not work.
+* NOTE: If you're not using the docker container to build and run the code, Python 2 must be used. Python 3 will not work. Ensure your python installation included Tkinter. This can't be uploaded separately.
 * <a href="https://github.com/tweepy/tweepy/" target="_blank">Tweepy</a>: A Python library for accessing Twitter API
 > To install Tweepy package using pip run the following command in your terminal:
 
@@ -57,3 +52,8 @@ $ sudo pip install -U nltk
 GUI Version: Run `./main.py` in python.
 
 Script Version (with extra metrics): ./test.py in python
+
+### Instructions for running the software
+
+From there, follow the GUI to enter a username and retrieve insights or follow the prompts
+on the command line to obtain insights on anyone's Twitter account. Enjoy!
