@@ -1,3 +1,8 @@
+# This script is the main part of the program. It connects to the
+# twitter API, processes the tweets, and calls the appropriate
+# modules and functions that categorize those tweets and determine
+# the sentiment.
+
 from __future__ import absolute_import, print_function
 
 import tweepy
@@ -88,8 +93,10 @@ while(True):
                 print ("Reading users " + str(count) + " - " + str(count+5) +
                        " right now")
             count += 1
+            # obtain all screen_names
             search = friend.screen_name
             print (search)
+            # process tweets
             try:
                 all_tweets = ""
                 tweets = api.user_timeline(

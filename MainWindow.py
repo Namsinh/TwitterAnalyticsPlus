@@ -1,3 +1,7 @@
+# This script is the home of the GUI. Here we use Tkinter
+# or tkinter depending on the version of python and create
+# the GUI that helps show the information in a more presentable manner
+
 try:
     from Tkinter import *
     from Ttkinter.scrolledtext import ScrolledText

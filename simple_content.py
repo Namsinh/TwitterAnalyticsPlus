@@ -1,3 +1,14 @@
+# This file splits the tweets into a couple of dictionaries. One
+# dictionary contains the category and the tweets, and the
+# other dictionary contains the categories, and the count
+# for each category. Within this script there are a few helper methods,
+# category_split, append_categories, and text_categories. These format
+# the data in a managable way. There are also a few main functions,
+# simple_classify and print_categories. These classify the tweets, determine
+# the number of tweets that fall into each category, rank those categories,
+# and call the appropriate functions to run sentiment analysis on them
+
+
 from google.cloud import language
 
 import os

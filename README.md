@@ -3,6 +3,8 @@
 This application aims to provide the user with insights on the nature of content being published by the people they follow.
 The application is still in the development stage. Note that there isn't much user feedback in the GUI, so it will take some time for the insights to load. This is due to the large number of twitter users and tweets that the application must work through.
 
+NOTE: Flake8 puts up some errors on the page that runs the GUI, but these are due to the odd syntax of programming the GUI. All the other files are free of linter errors
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.

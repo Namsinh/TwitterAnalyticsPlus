@@ -1,3 +1,5 @@
+# This script is similar to test.py, but it is used for the GUI
+
 from __future__ import absolute_import, print_function
 
 import tweepy
