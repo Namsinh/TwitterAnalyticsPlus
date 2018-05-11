@@ -6,7 +6,7 @@ COPY requirements.txt ./
 COPY test.py ./
 COPY sentiment.py ./
 COPY simple_content.py ./
-COPY main.py ./
+COPY Main.py ./
 COPY MainWindow.py ./
 COPY analyzer.py ./
 COPY tokenizer.py ./
