@@ -1,4 +1,6 @@
-Contributions:
+Riccardo Angiolini CPSC 353 - Data Communication and Networks Final Project 2259712 May 11th, 2018
+
+My Contributions:
 
 -Arranged all the out of class group meetings.
 
