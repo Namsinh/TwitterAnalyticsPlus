@@ -18,3 +18,5 @@ My contributions:
 9. Giving average overall sentiment of a user's following
 10. Determining the total number of categories that a user's following tweets about
 11. Providing some user feedback during the processing
+12. Commented top of source code
+13. Got rid of linter errors on all but one file
