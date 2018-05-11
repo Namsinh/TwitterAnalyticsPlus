@@ -120,12 +120,12 @@ def print_categories():
     average_sentiment = total_sentiment/count_categories
     print (average_sentiment)
 
-    if (average_sentiment > 0 and average_sentiment < .3):
+    if (average_sentiment > 0 and average_sentiment < .2):
         print ("This sentiment " +
                " can be interpreted as more or less neutral on average")
     elif (average_sentiment < 0):
         print ("This sentiment can be interpreted as negative")
-    elif (average_sentiment > .3 and average_sentiment < .6):
+    elif (average_sentiment > .2 and average_sentiment < .6):
         print ("This sentiment can be interpreted as relatively positive")
     elif (average_sentiment > .6):
         print ("This sentiment can be interpreted as very positive")
@@ -135,16 +135,16 @@ def print_categories():
     average_magnitude = total_magnitude/count_categories
     print (average_magnitude)
 
-    if (average_magnitude > 0 and average_magnitude < 3):
+    if (average_magnitude > 0 and average_magnitude < 15):
         print ("This magnitude can be interpreted as content that contains " +
                " very little emotion on average")
     elif (average_magnitude < 0):
         print ("This magnitude can be interpreted as content that contains " +
                " no emotion")
-    elif (average_magnitude > 3 and average_magnitude < 6):
+    elif (average_magnitude > 15 and average_magnitude < 30):
         print ("This magnitude can interpreted as content " +
                " that is relatively emotional")
-    elif (average_magnitude > 6):
+    elif (average_magnitude > 30):
         print ("This magnitude can be interpreted as very emotional content")
 
     print
@@ -200,7 +200,7 @@ def print_categories():
                 break
             print
 
-    load_more = input("Enter y to see the next 5 categories and n to quit")
+    load_more = raw_input("Enter y to see the next 5 categories and n to quit")
 
     if (load_more == 'y'):
         n = i
@@ -216,7 +216,8 @@ def print_categories():
                 print
                 break
             print
- 
+
+
 def print_categories_str():
 
     count_dictionary = {}
@@ -246,9 +247,8 @@ def print_categories_str():
     reportStr += "Number of distinct categories: "
     reportStr += str(count_categories)
 
-    
     reportStr += ("\n\nThe score depicts the sentiment and the magnitude " +
-           "depicts the amount of emotion\n")
+                  "depicts the amount of emotion\n")
 
     y = 0
     while (y < count_categories):
@@ -263,31 +263,33 @@ def print_categories_str():
     average_sentiment = total_sentiment/count_categories
     reportStr += str(average_sentiment)
 
-    if (average_sentiment > 0 and average_sentiment < .3):
+    if (average_sentiment > 0 and average_sentiment < .2):
         reportStr += ("\nThis sentiment " +
-               " can be interpreted as more or less neutral on average")
+                      " can be interpreted as more or less neutral on average")
     elif (average_sentiment < 0):
         reportStr += ("\nThis sentiment can be interpreted as negative")
-    elif (average_sentiment > .3 and average_sentiment < .6):
-        reportStr +=  ("\nThis sentiment can be interpreted as relatively positive")
+    elif (average_sentiment > .2 and average_sentiment < .6):
+        reportStr += ("\nThis sentiment can be interpreted " +
+                      " as relatively positive")
     elif (average_sentiment > .6):
-        reportStr +=  ("\nThis sentiment can be interpreted as very positive")
+        reportStr += ("\nThis sentiment can be interpreted as very positive")
 
-    reportStr +=  ("\nOverall magnitude: ")
+    reportStr += ("\nOverall magnitude: ")
     average_magnitude = total_magnitude/count_categories
     reportStr += str(average_magnitude)
 
-    if (average_magnitude > 0 and average_magnitude < 3):
-        reportStr +=  ("\nThis magnitude can be interpreted as content that contains " +
-               " very little emotion on average")
+    if (average_magnitude > 0 and average_magnitude < 15):
+        reportStr += ("\nThis magnitude can be interpreted as content " +
+                      " that contains very little emotion on average")
     elif (average_magnitude < 0):
-        reportStr +=  ("\nThis magnitude can be interpreted as content that contains " +
-               " no emotion")
-    elif (average_magnitude > 3 and average_magnitude < 6):
+        reportStr += ("\nThis magnitude can be interpreted as content " +
+                      " that contains no emotion")
+    elif (average_magnitude > 15 and average_magnitude < 30):
         reportStr += ("\nThis magnitude can interpreted as content " +
-               " that is relatively emotional")
-    elif (average_magnitude > 6):
-        reportStr += ("\nThis magnitude can be interpreted as very emotional content")
+                      " that is relatively emotional")
+    elif (average_magnitude > 30):
+        reportStr += ("\nThis magnitude can be interpreted " +
+                      " as very emotional content")
 
     i = -1
 
@@ -302,7 +304,7 @@ def print_categories_str():
                 sentiment.classify_sentiment(
                     categorized_text[high_category1].encode('utf-8'))
             except(IndexError):
-                reportStr +=  (
+                reportStr += (
                     "\nThe tweets weren't long enough to determine categories")
             print
         elif (i == 1):

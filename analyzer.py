@@ -25,8 +25,6 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 
-
-
 def analyze(username):
     user = api.get_user(username)
 
@@ -39,7 +37,7 @@ def analyze(username):
 
     count = 0
 
-    print("First, we will analyze the tweets of the following people you follow")
+    print("First, we will analyze tweets of these people you follow")
 
     for friend in user.friends(count=50):
         # print ("Follower: " + friend.screen_name + "\n")
@@ -60,7 +58,7 @@ def analyze(username):
                 all_tweets += tweet.full_text
             try:
                 simple_content.simple_classify(all_tweets)
-            except:
+            except(ValueError):
                 print ("A friend was skipped due to blocked permissions")
 
             # Create dictionary with everything
@@ -70,5 +68,3 @@ def analyze(username):
             print ("This user has protected tweets. Failed to run")
 
     return simple_content.print_categories_str()
-
-

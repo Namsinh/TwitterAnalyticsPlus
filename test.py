@@ -26,7 +26,8 @@ api = tweepy.API(auth)
 
 while(True):
     start = input("Press 1 to look at the tweets of a specific user, " +
-                  " and 2 to look at all the tweets of a user's followers\n")
+                      " and 2 to look at all the tweets " +
+                      " of a user's followers\n")
     if (start == '1'):
 
         # I/O Placeholder
@@ -56,7 +57,7 @@ while(True):
             my_tweets += x.full_text
         try:
             simple_content.simple_classify(my_tweets)
-        except:
+        except(ValueError):
             print("Language not supported by Google Cloud")
 
         simple_content.print_categories()
@@ -97,7 +98,7 @@ while(True):
                     all_tweets += tweet.full_text
                 try:
                     simple_content.simple_classify(all_tweets)
-                except:
+                except(ValueError):
                     print ("A friend was skipped due to blocked permissions")
 
                 # Create dictionary with everything
@@ -112,7 +113,7 @@ while(True):
         print("Try again.")
 
     continuation = input("If you would like to continue, press y. " +
-                         " Press any other botton to quit")
+                             " Press any other botton to quit")
 
     if (continuation != 'y'):
         print ("Thanks for using our analytics platform")

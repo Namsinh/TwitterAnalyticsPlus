@@ -55,7 +55,7 @@ def preprocess_tweets(json_file):
 
 
 # I/O Placeholder
-username = input('Username on Twitter (public accounts only): ')
+username = raw_input('Username on Twitter (public accounts only): ')
 
 # Getting the tweet json object
 try:
