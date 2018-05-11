@@ -25,7 +25,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 while(True):
-    start = input("Press 1 to look at the tweets of a specific user, " +
+    start = raw_input("Press 1 to look at the tweets of a specific user, " +
                       " and 2 to look at all the tweets " +
                       " of a user's followers\n")
     if (start == '1'):
@@ -34,7 +34,7 @@ while(True):
         print (
             "This tool will help you analyze a public account on twitter " +
             " based on the accounts they follow.")
-        name = input('Username on Twitter(public accounts only): ')
+        name = raw_input('Username on Twitter(public accounts only): ')
 
         user = api.get_user(name)
 
@@ -64,7 +64,7 @@ while(True):
 
     elif (start == '2'):
 
-        name = input('Username on Twitter(public accounts only): ')
+        name = raw_input('Username on Twitter(public accounts only): ')
 
         user = api.get_user(name)
 
@@ -112,7 +112,7 @@ while(True):
     else:
         print("Try again.")
 
-    continuation = input("If you would like to continue, press y. " +
+    continuation = raw_input("If you would like to continue, press y. " +
                              " Press any other botton to quit")
 
     if (continuation != 'y'):
