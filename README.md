@@ -53,7 +53,7 @@ $ sudo pip install -U nltk
 
 GUI Version: Run `./main.py` in python.
 
-Script Version (with extra metrics): ./test.py in python
+Script Version (with extra metrics): `./test.py` in python
 
 ### Instructions for running the software
 
